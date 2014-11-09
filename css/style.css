@@ -16,7 +16,6 @@ body {
 	border-bottom: 5px solid #140707;
 }
 
-
 #mainNav {
 	padding: 30px 20px 0px 20px;
 	margin : 0;
@@ -27,8 +26,6 @@ body {
 	font-weight:bold;
 	
 }
-
-
 
 /*--Main Page Styles--*/
 
@@ -49,13 +46,18 @@ body {
 	top: 50%;
 	left: 50%;
 	margin-right: -50%;
-	transform: translate(-50%, -50%);
-	transition:opacity 0.5s linear;
-	 -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-	   -moz-animation: fadein 2s; /* Firefox < 16 */
-		-ms-animation: fadein 2s; /* Internet Explorer */
-		 -o-animation: fadein 2s; /* Opera < 12.1 */
-			animation: fadein 2s;
+	
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%); /* IE 9 */
+	-o-transform: translate(-50%, -50%); /* Chrome, Safari, Opera */
+	 transform: translate(-50%, -50%);
+	 
+	-webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+	-moz-animation: fadein 2s; /* Firefox < 16 */
+	-ms-animation: fadein 2s; /* Internet Explorer */
+	-o-animation: fadein 2s; /* Opera < 12.1 */
+	 animation: fadein 2s;
 }
 
 #lock{
@@ -144,6 +146,8 @@ body {
 @supports (pointer-events: none) and
       ((-webkit-appearance: none) or
       (-moz-appearance: none) or
+	  (-ms-appearance: none) or
+	  (-o-appearance: none) or
       (appearance: none)) {
 
     .custom-dropdown {
