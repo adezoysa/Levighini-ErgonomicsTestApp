@@ -6,7 +6,11 @@ function getJson(){
 	
 	if(object!==""){
 		obj = JSON.parse(object);
-		changeGesture(obj.action, obj.gesture);
+		if(obj.action=="Lock"){
+			Lock(true);
+		}else{
+			changeGesture(obj.action, obj.gesture);
+		}
 	}
  }
 
