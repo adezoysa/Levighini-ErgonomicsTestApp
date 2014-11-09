@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Ergonomics Testing</title>
+		
+		<meta name="description" content="Ergonomics Testing">
+		<meta name="keywords" content="Ergonomics, Testing">
+		<link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+		<link href="css/style.css" rel="stylesheet" type="text/css">
+		<link href="css/font.css" rel="stylesheet" type="text/css">
+	</head>
+
+	<style type="text/css"></style>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/controller.js"></script>
+
+	<body>
+
+		<div id="mainNav">
+			<span class="custom-dropdown custom-dropdown--white">
+				<!--Configuration Selector-->
+				<select class="custom-dropdown__select custom-dropdown__select--white" onchange="changeConfiguration(this)">
+					<option value="1">Configuration &nbsp;&nbsp;1</option>
+					<option value="2">Configuration &nbsp;&nbsp;2</option>
+					<option value="3">Configuration &nbsp;&nbsp;3</option>
+				</select>
+			</span>
+		</div>
+
+		
+		<div align="center" >
+			<div id="circleBase">
+				<!--Symbol changes-->
+				<img id="symbol" src="images/Shutdown.png" alt="Shutdown"/>
+				
+				<div id="lock" style="display: none;"> </div>
+			</div>	
+		</div>
+		
+		<div id="desc">
+			<!--action-->
+			<span id="action">Shutdown</span>
+			<span id="divider"> </span>
+			<!--gesture-->
+			<span id="gesture">Open Palm Moving Down</span>
+			
+			<!--Remove the text box, only for test purposes-->
+			<input type="text" id="JSON"  onkeypress="getJson()" ></input>
+		</div>
+		
+	</body>
+	
+</html>

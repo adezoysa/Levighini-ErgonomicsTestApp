@@ -1,0 +1,214 @@
+body {
+ background: #2f2345;
+ margin: 0;
+ padding: 0;
+ font-family: Aller;
+ font-size: 0.85em;
+ line-height: 1.5em;
+ color:#1f1f1f;
+}
+
+#header {
+	margin : 0;
+	width: auto;
+	height:130px;
+	border-top: 5px solid #140707;
+	border-bottom: 5px solid #140707;
+}
+
+
+#mainNav {
+	padding: 30px 20px 0px 20px;
+	margin : 0;
+	height: auto;
+	width: auto;
+	font-size:18px;
+	color:#FF0000;
+	font-weight:bold;
+	
+}
+
+
+
+/*--Main Page Styles--*/
+
+/*--Symbol section styles--*/
+#circleBase {
+	align: center;
+	position: relative;
+    border-radius: 50%;
+    width: 450px;
+    height: 450px;
+	margin-bottom:28px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+#symbol{
+	opacity: 1; 
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+	transition:opacity 0.5s linear;
+	 -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+	   -moz-animation: fadein 2s; /* Firefox < 16 */
+		-ms-animation: fadein 2s; /* Internet Explorer */
+		 -o-animation: fadein 2s; /* Opera < 12.1 */
+			animation: fadein 2s;
+}
+
+#lock{
+	position: absolute;
+	top: 62%;
+	margin-left: 44%;
+	display: block;
+	background-image: url(../images/lock.png);
+	width: 48px;
+	height: 62px;
+	background-repeat: no-repeat;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/*--Description section styles--*/
+#desc{
+	width:100%;
+	background: #fff;
+	padding: 25px 0px;
+	font-size: 38px;
+	color: #2f2345;
+	border-bottom: 8px solid #2f2345;
+	position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+#action{
+	padding-left: 20px;
+}
+#gesture{
+	padding-right: 20px;
+}
+
+#divider{
+	background-image: url(../images/space.png);
+	background-repeat: no-repeat;
+	display: inline-block;
+	height: 25px;
+	padding-bottom: 7px;
+	width: 31px;
+	margin-left: 15px;
+	margin-right: 15px;
+
+}
+
+/*--Dropdown styles--*/
+.custom-dropdown__select{
+    font-size: inherit; /* inherit size from .custom-dropdown */
+    padding: .4em; /* add some space*/
+    margin: 0; /* remove default margins */
+}
+
+.custom-dropdown__select--white {
+    background-color: #fff;
+    color: #444;    
+}
+
+@supports (pointer-events: none) and
+      ((-webkit-appearance: none) or
+      (-moz-appearance: none) or
+      (appearance: none)) {
+
+    .custom-dropdown {
+		font-size: 20px;
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .custom-dropdown__select {
+        padding-right: 2.5em; /* accommodate with the pseudo elements for the dropdown arrow */
+        border: 0;
+        border-radius: 3px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;  
+		outline: 0 !important;		
+    }
+
+    .custom-dropdown::before,
+    .custom-dropdown::after {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+    }
+
+    .custom-dropdown::after { /*  Custom dropdown arrow */
+        content: "\25BC";
+        height: 1em;
+        font-size: .625em;
+        line-height: 1;
+        right: 1.2em;
+        top: 50%; margin-top: -.5em;
+    }
+
+    .custom-dropdown::before { /*  Custom dropdown arrow cover */
+        width: 2em;
+        right: 0; top: 0; bottom: 0;
+        border-radius: 0 3px 3px 0;
+    }
+
+    .custom-dropdown__select[disabled] {
+        color: rgba(0,0,0,.3);
+    }
+
+    .custom-dropdown.custom-dropdown--disabled::after {
+        color: rgba(0,0,0,.1);
+    }
+
+    /* White dropdown style */
+    .custom-dropdown--white::before {
+      
+        background-color: #fff;
+        
+    }
+
+    .custom-dropdown--white::after {
+        color: #2f2345;
+    }
+
+    /* FF only temp fix */
+    @-moz-document url-prefix() {
+        .custom-dropdown__select             { padding-right: .9em }
+        .custom-dropdown--large .custom-dropdown__select { padding-right: 1.3em }
+        .custom-dropdown--small .custom-dropdown__select { padding-right: .5em }
+    }
+}
+
