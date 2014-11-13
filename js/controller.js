@@ -1,3 +1,6 @@
+var config = 1;
+var action = 5; //default rest
+
 function getJson(){
 	//call the server and get the JSON object
 	object = $('#JSON').val();
@@ -15,11 +18,11 @@ function getJson(){
  }
 
 function changeConfiguration(select){
-	var config = select.value;
+	config = select.value;
 	// Send the configuration to Myo (1,2,3)
 	
 	//Initialize the system to shutdown
-	var action = "Shutdown";
+	action = "Shutdown";
 	var gesture = ""
 	
 	if (config == "2"){
@@ -53,5 +56,100 @@ function Lock(action){
 	}else{
 		$('#lock').css("display", "none");
 	}
+}
+
+function getActionNumberFromGesture(gesture, direction){
+	var actionNumber = action; //defualt current action
+	if(config === 1){
+		if(gesture === "REST"){
+
+		}
+		if(gesture === "FIST"){
+
+		}
+		if(gesture === "WAVE_IN"){
+			
+		}
+		if(gesture === "WAVE_OUT"){
+			
+		}
+		if(gesture === "FINGERS_SPREAD"){
+			
+		}
+		if(gesture === "THUMB_TO_PINKY"){
+			
+		}
+	}
+
+	if(config === 2){
+		if(gesture === "REST"){
+
+		}
+		if(gesture === "FIST"){
+
+		}
+		if(gesture === "WAVE_IN"){
+			
+		}
+		if(gesture === "WAVE_OUT"){
+			
+		}
+		if(gesture === "FINGERS_SPREAD"){
+			
+		}
+		if(gesture === "THUMB_TO_PINKY"){
+			
+		}
+	}
+
+	if(config === 3){
+		if(gesture === "REST"){
+
+		}
+		if(gesture === "FIST"){
+
+		}
+		if(gesture === "WAVE_IN"){
+			
+		}
+		if(gesture === "WAVE_OUT"){
+			
+		}
+		if(gesture === "FINGERS_SPREAD"){
+			
+		}
+		if(gesture === "THUMB_TO_PINKY"){
+			
+		}
+	}
+}
+
+function getImageName(actionNumber){
+	var action = "";
+	switch(actionNumber){
+		case 0:
+			action = "Start"
+			break;
+		case 1:
+			action = "Stop"
+			break;
+		case 2:
+			action = "Shutdown"
+			break;
+		case 3:
+			action = "Left"
+			break;
+		case 4:
+			action = "Right"
+			break;
+		case 5:
+			action = "Cruise"
+			break;
+		case 6:
+			action = "Unlock"
+			break;
+		default:
+	}
+	return action;
 }
 
