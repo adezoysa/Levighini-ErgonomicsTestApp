@@ -1,17 +1,23 @@
 function getJson(){
 	//call the server and get the JSON object
-	object = $('#JSON').val();
-	
-	//input = '{"action":"Start","gesture":"Unlock Gesture"}'
-	
-	if(object!==""){
-		obj = JSON.parse(object);
-		if(obj.action=="Lock"){
-			Lock(true);
-		}else{
-			changeGesture(obj.action, obj.gesture);
+	//object = $('#JSON').val();
+	$.ajax({
+	  dataType: "json",
+	  url: "http://127.0.0.1:8080",
+	  success: function(object){
+	  	if(object!==""){
+			obj = object;
+			if(obj.action=="Lock"){
+				Lock(true);
+			}else{
+				changeGesture(obj.action, obj.gesture);
+			}
 		}
-	}
+	  }
+	});
+	//input = '{"action":"Start","gesture":"Unlock Gesture"}'
+	// object = data;
+	
  }
 
 function changeConfiguration(select){
