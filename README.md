@@ -1,6 +1,8 @@
 Levighini: Ergonomics Application
 ================================
-SYDE 461/462 Design Project University of Waterloo. This is a user testing application of the Myo Gestures that is intended to integrate for the final design.
+This is a User Testing Application of the Myo Gestures that is intended to be integrate in to the final design.
+
+SYDE 461/462 Design Project University of Waterloo. 
 
 Team Members
 ------------
