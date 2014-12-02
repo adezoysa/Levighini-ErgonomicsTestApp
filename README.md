@@ -5,8 +5,11 @@ SYDE 461/462 Design Project University of Waterloo. This is a user testing appli
 Team Members
 =============
 Achini De Zoysa (@adezoysa)
+
 Suchintan Sing (@suchintan)
+
 Menaka Kiriwattuduwa (@mkiri)
+
 Ann Han
 
 Important
