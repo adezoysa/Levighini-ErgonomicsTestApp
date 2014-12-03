@@ -8,7 +8,7 @@ Team Members
 ------------
 
 * Achini De Zoysa ([@adezoysa](https://github.com/adezoysa))
-* Suchintan Sing ([@suchintan](https://github.com/suchintan))
+* Suchintan Singh ([@suchintan](https://github.com/suchintan))
 * Menaka Kiriwattuduwa ([@mkiri](https://github.com/mkiri))
 * Ann Han
 
