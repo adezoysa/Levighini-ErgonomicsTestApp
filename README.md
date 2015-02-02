@@ -4,6 +4,8 @@ This is a User Testing Application of the Myo Gestures that is intended to be in
 
 SYDE 461/462 Design Project University of Waterloo. 
 
+Server: https://github.com/suchintan/MyoServer
+
 Team Members
 ------------
 
