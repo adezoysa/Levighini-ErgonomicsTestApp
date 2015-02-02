@@ -1,3 +1,5 @@
+var prevAction = "";
+
 function getJson(){
 	//call the server and get the JSON object
 	//object = $('#JSON').val();
@@ -10,7 +12,10 @@ function getJson(){
 			if(obj.action=="Lock"){
 				Lock(true);
 			}else{
-				changeGesture(obj.action, obj.gesture);
+				if(prevAction !== obj.action){
+					changeGesture(obj.action, obj.gesture);
+					prevAction = obj.action;
+				}
 			}
 		}
 	  }
@@ -20,6 +25,8 @@ function getJson(){
 	
  }
 
+setInterval(getJson, 500);
+
 function changeConfiguration(select){
 	var config = select.value;
 	// Send the configuration to Myo (1,2,3)
@@ -28,11 +35,11 @@ function changeConfiguration(select){
 	var action = "Shutdown";
 	var gesture = ""
 	
-	if (config == "2"){
-		gesture ="Syncing Gesture";
-	}else{
-		gesture ="Open Palm moving down";
-	}
+	// if (config == "2"){
+	// 	gesture ="Syncing Gesture";
+	// }else{
+	// 	gesture ="Open Palm moving down";
+	// }
 	changeGesture(action, gesture);
 }
 
