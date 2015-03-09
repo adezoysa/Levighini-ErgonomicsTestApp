@@ -2,77 +2,49 @@ var prevAction = "Shutdown";
 var prevGesture = "";
 var config = 1;
 
-function getJson(){
-	//call the server and get the JSON object
-	//object = $('#JSON').val();
-	$.ajax({
-	  dataType: "json",
-	  url: "http://127.0.0.1:8080",
-	  success: function(object){
-	  	if(object!==""){
-			obj = object;
-			
-			
-			if(prevAction !== obj.action){
-				changeAction(obj.action);
-				prevAction = obj.action;
-			}
+var sequence = ["Shutdown", "Accelerate", "Left", "Stop", "Accelerate", "Right", "Right", "Stop", "Accelerate", "Left", "Stop", "Shutdown"];
 
-			// if(prevGesture !== obj.gesture){
-			// 	changeGesture()
-			// }
-			
-		}
-	  }
-	});
-	//input = '{"action":"Start","gesture":"Unlock Gesture"}'
-	// object = data;
-	
- }
 
- // REST,
- //    FIST,
- //    WAVE_IN,
- //    WAVE_OUT,
- //    FINGERS_SPREAD,
- //    DOUBLE_TAP,
- //    UNKNOWN
+function getActionFromKey(e){
+	if(e.keyCode == 81){
+		return "Shutdown";
+	}
 
-// Start,
-//     Stop,
-//     Shutdown,
-//     Left,
-//     Right,
-//     Cruise,
-//     Unlock,
-//     Lock
+	if(e.keyCode == 83){
+		return "Stop";
+	}
 
-// ROTATE_LEFT,
-//     ROTATE_RIGHT,
-//     MOVE_RIGHT,
-//     SPIKE,
-//     NONE;
- function getActionFromGesture(gesture){
- 	if(gesture.p == "DOUBLE_TAP"){
+	if(e.keyCode == 37){
+		return "Left";
+	}
 
- 	}
- }
+	if(e.keyCode == 39){
+		return "Right";
+	}
 
-// setInterval(getJson, 500);
+	if(e.keyCode == 65){
+		return "Accelerate";
+	}
 
-function changeConfiguration(select){
-	config = select.value;
-	// Send the configuration to Myo (1,2,3)
-	
-	//Initialize the system to shutdown
-	var action = "Shutdown";
-	
-	// if (config == "2"){
-	// 	gesture ="Syncing Gesture";
-	// }else{
-	// 	gesture ="Open Palm moving down";
-	// }
-	changeAction(action);
+	return "NONE";
+}
+
+var currentIteration = 0;
+var startTime = new Date().getTime();
+changeAction(sequence[currentIteration]);
+
+function nextIteration(){
+	currentIteration++;
+
+	if(currentIteration >= sequence.length){
+		currentIteration = 0;
+	}
+	changeAction(sequence[currentIteration]);
+
+	var time = new Date().getTime();
+	console.log(time - startTime);
+
+	startTime = time;
 }
 
 //q = 81
@@ -83,40 +55,16 @@ function changeConfiguration(select){
 var currentKey = 0;
 
 $(document).keydown(function(e){
-	console.log("Key pressed: " + e.keyCode);
+	var action = getActionFromKey(e);
 
-	if(e.keyCode != 81 && e.keyCode === currentKey){
-		return;
-	}
-
-	currentKey = e.keyCode;
-
-
-	if(e.keyCode == 81){
-		changeAction("Shutdown");
-	}
-
-	if(e.keyCode == 83){
-		changeAction("Stop");
-	}
-
-	if(e.keyCode == 37){
-		changeAction("Left");
-	}
-
-	if(e.keyCode == 39){
-		changeAction("Right");
-	}
-
-	if(e.keyCode == 65){
-		changeAction("Accelerate")
+	if(sequence[currentIteration] === action){
+		nextIteration();
 	}
 });
 
 $(document).keyup(function(e){
-	console.log("Key up: " + e.keyCode);
 	if(e.keyCode == 65 || e.keyCode == 37 || e.keyCode ==39 || e.keyCode == 83){
-		changeAction("Cruise");
+		// changeAction("Cruise");
 	}
 
 	currentKey = 0;
